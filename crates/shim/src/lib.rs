@@ -154,7 +154,7 @@ pub struct StartOpts {
 /// through a file descriptor during forking, which is the fourth(3) file descriptor.
 const SOCKET_FD: RawFd = 3;
 
-#[cfg(target_os = "linux")]
+#[cfg(any(target_os = "linux", target_os="freebsd"))]
 pub const SOCKET_ROOT: &str = "/run/containerd";
 
 #[cfg(target_os = "macos")]
